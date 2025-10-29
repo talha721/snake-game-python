@@ -1,102 +1,94 @@
 # Snake Game
 
-Small Python project intended to implement the classic Snake game.
+A classic Snake game implementation in Python using the turtle graphics library.
 
-Note: Current `main.py` in this repository only contains a simple placeholder (`print("Hello")`). If you already have a full game implementation, replace or expand `main.py` accordingly. This README provides guidance for a typical Python/pygame-based Snake game and minimal instructions to run the current placeholder script.
-
-## Features (intended)
+## Features
 
 - Player-controlled snake that grows when eating food
-- Score tracking and increasing difficulty
-- Collisions with walls or the snake's own body ends the game
-- Keyboard controls for movement
+- Real-time score tracking
+- Collision detection with walls ends the game
+- Collision detection with the snake's own body ends the game
+- Smooth keyboard controls for movement (Arrow keys and WASD)
+- Visual feedback with a game over message
 
 ## Requirements
 
-- Python 3.8 or newer (3.10+ recommended)
-
-Optional (if the game uses Pygame):
-
-- pygame (for graphics and input handling)
+- Python 3.8 or newer (the turtle module is included in the standard library)
 
 ## Installation
 
-1. Clone or copy this repository to your machine.
+1. Clone or download this repository to your machine.
 
-2. (Optional) Create a virtual environment (recommended):
+2. No additional dependencies required! The game uses Python's built-in `turtle` graphics library.
 
-```bash
-python -m venv .venv
-source .venv/Scripts/activate  # on Windows with bash.exe
-# or: source .venv/bin/activate  # on Unix-like shells
-```
+## Running the Game
 
-3. Install dependencies (only if you plan to use pygame or other libraries):
-
-```bash
-python -m pip install --upgrade pip
-python -m pip install pygame
-```
-
-If you provide a `requirements.txt` later, install with:
-
-```bash
-python -m pip install -r requirements.txt
-```
-
-## Running
-
-To run the current placeholder script:
+To run the game, simply execute:
 
 ```bash
 python main.py
 ```
 
-If you implement the full game using pygame, running the game will usually be the same command:
+## How to Play
 
-```bash
-python main.py
+- The snake starts moving automatically
+- Use **Arrow keys** (Up, Down, Left, Right) or **WASD** keys to control the snake's direction
+- Eat the red food circles to grow longer and increase your score
+- Avoid hitting the walls or your own tail
+- Click anywhere on the screen to exit after game over
+
+## Controls
+
+- **↑** or **W** - Move up
+- **↓** or **S** - Move down
+- **←** or **A** - Move left
+- **→** or **D** - Move right
+
+## Game Rules
+
+- The snake cannot move backward into itself (180-degree turns are prevented)
+- Each food item eaten increases your score by 1 and adds a segment to the snake
+- Game ends if the snake hits any wall boundary
+- Game ends if the snake collides with its own body
+
+## Project Structure
+
+```
+Snake Game/
+├── main.py       # Main game file with Snake, Food, and Scoreboard classes
+└── README.md     # This file
 ```
 
-## Controls (typical for Snake)
+## Code Overview
 
-- Arrow keys or WASD to move the snake
-- ESC or close window to quit
+The game consists of three main classes:
 
-## Development notes / How to extend
-
-- Replace the placeholder logic in `main.py` with your game loop using `pygame` (or another library).
-- Structure suggestion:
-  - `main.py` — entry point (initialization + game loop)
-  - `game/` — game logic (snake, food, board)
-  - `assets/` — optional images/sounds
-
-A minimal Pygame game loop looks like:
-
-```python
-import pygame
-# init, create window, game loop, handle events, update, draw
-```
+- **Snake**: Manages the snake's segments, movement, and direction
+- **Food**: Randomly places food on the screen for the snake to eat
+- **Scoreboard**: Tracks and displays the current score and game over message
 
 ## Troubleshooting
 
-- If you see import errors for `pygame`, ensure it's installed in the active Python environment.
-- If the window does not open, check that you are not running the script over SSH without X forwarding.
+- If the game window doesn't open, ensure you're running Python 3.8 or newer
+- On some systems, you may need to have Tk/Tcl installed (usually comes with Python)
+- If the game is too fast or slow, modify the `time.sleep(0.1)` value in main.py
 
-## Assumptions
+## Future Enhancements
 
-- I assumed this is a Python project and that a future/typical implementation will use `pygame` for the UI. The current `main.py` is a placeholder that prints "Hello"; if your project already uses a framework, update the README to reflect that.
+Possible improvements to consider:
 
-## Next steps (suggested)
-
-- Implement full game logic or add existing game files.
-- Add `requirements.txt` with pinned dependency versions (e.g., `pygame==2.1.3`).
-- Add basic unit tests and a simple CI workflow to run them.
+- Add a high score system that persists between sessions
+- Implement difficulty levels (faster speed as score increases)
+- Add sound effects
+- Create a pause/resume feature
+- Add a restart button to play again without closing the window
 
 ## License
 
-Add a license file (e.g., `LICENSE`) and set the license here.
+This is an open-source educational project. Feel free to use and modify as needed.
 
 ## Credits
+
+Built with Python's turtle graphics library.
 
 Created by you — enjoy building your Snake game!
